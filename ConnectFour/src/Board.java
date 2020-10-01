@@ -5,7 +5,7 @@ public class Board {
     public static final int NO_PLAYER = 0;
     public static final int PLAYER_R = 1;
     public static final int PLAYER_Y = 2;
-    private int[][] board = new int[4][4];
+    private int[][] board = new int[6][7];
     public boolean isGameOver(){
         return checkWin(PLAYER_R) || checkWin(PLAYER_Y) || getAvailableCells().isEmpty();
     }
@@ -22,7 +22,7 @@ public class Board {
         }
         return availableCells;
     }
-    public boolean checkWin(int player){
+    public boolean checkWin2(int player){
         if (board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == board[3][3] && board[0][0] == player){
             return true;
         }
@@ -44,7 +44,7 @@ public class Board {
     private boolean checkDown(int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
-            if(row + i > board.length) {
+            if(row + i >= board.length) {
                 return false;
             }
             if(board[row + i][col] != value){
@@ -57,7 +57,7 @@ public class Board {
     private boolean checkUp(int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
-            if(row - 1 < 0){
+            if(row - i < 0){
                 return false;
             }
             if(board[row - i][col] != value){
@@ -84,7 +84,7 @@ public class Board {
     private boolean checkRight(int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
-            if (col + i > board.length){
+            if (col + i >= board.length){
                 return false;
             }
 
@@ -98,7 +98,7 @@ public class Board {
     private boolean checkDiagLeft(int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
-            if(col - i < 0 || row + i > board.length){
+            if(col - i < 0 || row + i >= board.length){
                 return false;
             }
 
@@ -112,7 +112,7 @@ public class Board {
     private boolean checkDiagRight(int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
-            if(col + i > board[0].length || row + i > board.length){
+            if(col + i >= board[0].length || row + i >= board.length){
                 return false;
             }
 
@@ -123,7 +123,7 @@ public class Board {
         return true;
     }
 
-    public boolean checkWin2(int player){
+    public boolean checkWin(int player){
         for(int i = 0; i < board.length; i++){
             for(int n = 0; n < board[0].length; n++){
                 if(board[i][n] == player) {
@@ -159,10 +159,13 @@ public class Board {
         return board;
     }
     public void displayBoard(){
-        System.out.println("1234");
+        for(int i = 0; i < board[0].length; i++){
+            System.out.print(i + 1);
+        }
+        System.out.println();
         int count = 1;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4 ; j++) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
                 String value = String.valueOf(count);
                 if(board[i][j] == PLAYER_R){
                     value = "R";

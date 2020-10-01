@@ -12,6 +12,9 @@ public class AI extends Board {
     public int minimax(int depth, int turn, Board board) {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
+        if(depth == 6){
+            return 0;
+        }
         int bestMoveSoFar = -1;
         List<List<Integer>> availableCells = board.getAvailableCells();
 
