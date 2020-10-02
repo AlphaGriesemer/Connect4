@@ -7,7 +7,7 @@ public class Board {
     public static final int PLAYER_Y = 2;
     private int[][] board = new int[6][7];
     public boolean isGameOver(){
-        return checkWin(PLAYER_R) || checkWin(PLAYER_Y) || getAvailableCells().isEmpty();
+        return checkWin(4, PLAYER_R) || checkWin(4, PLAYER_Y) || getAvailableCells().isEmpty();
     }
     public List<List<Integer>> getAvailableCells(){
         List<List<Integer>> availableCells = new ArrayList<>();
@@ -43,7 +43,7 @@ public class Board {
 
     private boolean checkDown(int length, int row, int col){
         int value = board[row][col];
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < length; i++){
             if(row + i >= board.length) {
                 return false;
             }
@@ -56,7 +56,7 @@ public class Board {
 
     private boolean checkUp(int length, int row, int col){
         int value = board[row][col];
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < length; i++){
             if(row - i < 0){
                 return false;
             }
@@ -69,7 +69,7 @@ public class Board {
 
     private boolean checkLeft(int length, int row, int col) {
         int value = board[row][col];
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < length; i++){
             if(col - i < 0){
                 return false;
             }
@@ -83,7 +83,7 @@ public class Board {
 
     private boolean checkRight(int length, int row, int col){
         int value = board[row][col];
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < length; i++){
             if (col + i >= board.length){
                 return false;
             }
@@ -97,7 +97,7 @@ public class Board {
 
     private boolean checkDiagLeft(int length, int row, int col){
         int value = board[row][col];
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < length; i++){
             if(col - i < 0 || row + i >= board.length){
                 return false;
             }
@@ -111,7 +111,7 @@ public class Board {
 
     private boolean checkDiagRight(int length, int row, int col){
         int value = board[row][col];
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < length; i++){
             if(col + i >= board[0].length || row + i >= board.length){
                 return false;
             }

@@ -6,6 +6,10 @@ public class AI extends Board {
     //private Board board;
     private Integer computerMove;
 
+    AI(){
+        System.out.println(computerMove);
+    }
+
     public int getComputerMove(){
         return computerMove;
     }
@@ -21,11 +25,11 @@ public class AI extends Board {
             int bestMoveSoFar = -1;
             List<List<Integer>> availableCells = board.getAvailableCells();
 
-            if (board.checkWin(PLAYER_Y)) {
+            if (board.checkWin(4, PLAYER_Y)) {
                 return 10;
 
             }
-            else if (board.checkWin(PLAYER_R)) {
+            else if (board.checkWin(4, PLAYER_R)) {
                 return -10;
             }
 
@@ -64,11 +68,11 @@ public class AI extends Board {
             int bestMoveSoFar = -1;
             List<List<Integer>> availableCells = board.getAvailableCells();
 
-            if (board.checkWin(PLAYER_Y)) {
+            if (board.checkWin(4, PLAYER_Y)) {
                 return 10;
 
             }
-            else if (board.checkWin(PLAYER_R)) {
+            else if (board.checkWin(4, PLAYER_R)) {
                 return -10;
             }
 
