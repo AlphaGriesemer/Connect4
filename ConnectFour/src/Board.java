@@ -41,7 +41,7 @@ public class Board {
         return false;
     }
 
-    private boolean checkDown(int row, int col){
+    private boolean checkDown(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
             if(row + i >= board.length) {
@@ -54,7 +54,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkUp(int row, int col){
+    private boolean checkUp(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
             if(row - i < 0){
@@ -67,7 +67,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkLeft(int row, int col) {
+    private boolean checkLeft(int length, int row, int col) {
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
             if(col - i < 0){
@@ -81,7 +81,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkRight(int row, int col){
+    private boolean checkRight(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
             if (col + i >= board.length){
@@ -95,7 +95,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkDiagLeft(int row, int col){
+    private boolean checkDiagLeft(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
             if(col - i < 0 || row + i >= board.length){
@@ -109,7 +109,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkDiagRight(int row, int col){
+    private boolean checkDiagRight(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < 4; i++){
             if(col + i >= board[0].length || row + i >= board.length){
@@ -123,26 +123,26 @@ public class Board {
         return true;
     }
 
-    public boolean checkWin(int player){
+    public boolean checkWin(int player, int length){
         for(int i = 0; i < board.length; i++){
             for(int n = 0; n < board[0].length; n++){
                 if(board[i][n] == player) {
-                    if(this.checkUp(i, n)){
+                    if(this.checkUp(length, i, n)){
                         return true;
                     }
-                    if(this.checkDown(i, n)){
+                    if(this.checkDown(length, i, n)){
                         return true;
                     }
-                    if(this.checkLeft(i, n)){
+                    if(this.checkLeft(length, i, n)){
                         return true;
                     }
-                    if(this.checkRight(i, n)){
+                    if(this.checkRight(length, i, n)){
                         return true;
                     }
-                    if(this.checkDiagRight(i, n)){
+                    if(this.checkDiagRight(length, i, n)){
                         return true;
                     }
-                    if(this.checkDiagLeft(i, n)){
+                    if(this.checkDiagLeft(length, i, n)){
                         return true;
                     }
                 }
