@@ -11,7 +11,7 @@ public class heuristic{
         return 0;
     }
     public int cF2IC_R_D(){
-        return 0;
+        return 1;
     }
     private int gravity(){
         return 0;
