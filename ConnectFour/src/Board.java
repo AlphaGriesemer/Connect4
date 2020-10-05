@@ -7,7 +7,7 @@ public class Board {
     public static final int PLAYER_Y = 2;
     private int[][] board = new int[6][7];
     public boolean isGameOver(){
-        return checkWin(4, PLAYER_R) || checkWin(4, PLAYER_Y) || getAvailableCells().isEmpty();
+        return checkWin(PLAYER_R, 4) || checkWin(PLAYER_Y, 4) || getAvailableCells().isEmpty();
     }
     public List<List<Integer>> getAvailableCells(){
         List<List<Integer>> availableCells = new ArrayList<>();
@@ -128,21 +128,27 @@ public class Board {
             for(int n = 0; n < board[0].length; n++){
                 if(board[i][n] == player) {
                     if(this.checkUp(length, i, n)){
+                        System.out.println("Won by checkup");
                         return true;
                     }
                     if(this.checkDown(length, i, n)){
+                        System.out.println("Won by checkDown");
                         return true;
                     }
                     if(this.checkLeft(length, i, n)){
+                        System.out.println("Won by checkLeft");
                         return true;
                     }
                     if(this.checkRight(length, i, n)){
+                        System.out.println("Won by checkRight");
                         return true;
                     }
                     if(this.checkDiagRight(length, i, n)){
+                        System.out.println("Won by checkDiagRight");
                         return true;
                     }
                     if(this.checkDiagLeft(length, i, n)){
+                        System.out.println("Won by CheckDiagLeft");
                         return true;
                     }
                 }
@@ -160,7 +166,7 @@ public class Board {
     }
     public void displayBoard(){
         for(int i = 0; i < board[0].length; i++){
-            System.out.print(i + 1);
+            System.out.print(i + 1 + "|");
         }
         System.out.println();
         int count = 1;
@@ -168,13 +174,13 @@ public class Board {
             for (int j = 0; j < board[0].length; j++) {
                 String value = String.valueOf(count);
                 if(board[i][j] == PLAYER_R){
-                    value = "R";
+                    value = "R|";
                 }
                 else if(board[i][j] == PLAYER_Y){
-                    value = "Y";
+                    value = "Y|";
                 }
                 else{
-                    value = "_";
+                    value = "_|";
                 }
                 System.out.print(value);
                 count++;

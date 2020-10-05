@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.util.Scanner;
 
 public class Driver {
@@ -6,9 +7,9 @@ public class Driver {
         AI ai = new AI();
         AI ai2 = new AI();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Gamemode: AI vs Human (1), AI vs AI (2): ");
-        int gamemode = scanner.nextInt();
-        if(gamemode == 1){
+        System.out.println("Game mode: AI vs Human (1), AI vs AI (2): ");
+        int gameMode = scanner.nextInt();
+        if(gameMode == 1){
             b.displayBoard();
             while(!b.isGameOver()) {
                 boolean moveOk = true;
@@ -29,21 +30,19 @@ public class Driver {
 
                 ai.minimax(0, Board.PLAYER_Y, b, "Y");
                 b.placeMove(ai.getComputerMove() + 1, Board.PLAYER_Y);
-                //System.out.println(ai.getComputerMove());
-                //System.out.println(b.getAvailableCells());
                 b.displayBoard();
             }
-            if(b.checkWin(Board.PLAYER_Y)){
+            if(b.checkWin(Board.PLAYER_Y, 4)){
                 System.out.println("You Lost !");
             }
-            else if(b.checkWin(Board.PLAYER_R)){
+            else if(b.checkWin( Board.PLAYER_R, 4)){
                 System.out.println("You win !");
             }
             else {
                 System.out.println("Draw !");
             }
         }
-        else if(gamemode == 2){
+        else if(gameMode == 2){
             while(!b.isGameOver()){
                 ai.minimax(0, Board.PLAYER_Y, b, "Y");
                 b.placeMove(ai.getComputerMove()+1, Board.PLAYER_Y);
@@ -52,11 +51,15 @@ public class Driver {
                 b.displayBoard();
                 b.placeMove(ai2.getComputerMove()+1, Board.PLAYER_R);
 
+                if(b.isGameOver()){
+                    break;
+                }
+
             }
-            if(b.checkWin(Board.PLAYER_Y)){
+            if(b.checkWin(Board.PLAYER_Y, 4)){
                 System.out.println("AI Yellow Won !");
             }
-            else if(b.checkWin(Board.PLAYER_R)){
+            else if(b.checkWin(Board.PLAYER_R, 4)){
                 System.out.println("AI Red Won !");
             }
             else {
