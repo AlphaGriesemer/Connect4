@@ -68,7 +68,7 @@ public class Driver {
         }
         else{
             b.displayBoard();
-            heuristic heuristic = new heuristic(b.getBoard());
+            heuristic heuristic = new heuristic(b);
             System.out.println(heuristic.gravity(2));
         }
 
