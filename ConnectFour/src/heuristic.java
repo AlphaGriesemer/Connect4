@@ -4,26 +4,26 @@ public class heuristic{
     public heuristic(Board board) {
         this.board = board;
     }
-    public int cF3IC_R_D(int player){
+    public int checkForPossWin(int player, int length){
         for(int i = 0; i < this.board.getBoard().length; i++){
             for(int n = 0; n < this.board.getBoard()[0].length; n++){
                 if(board.getBoard()[i][n] == player) {
-                    if(board.checkUp(3, i, n)){
+                    if(board.checkUp(length, i, n)){
                         return n;
                     }
-                    if(board.checkDown(3, i, n)){
+                    if(board.checkDown(length, i, n)){
                         return n;
                     }
-                    if(board.checkLeft(3, i, n)){
+                    if(board.checkLeft(length, i, n)){
                         return n - 3;
                     }
-                    if(board.checkRight(3, i, n)){
+                    if(board.checkRight(length, i, n)){
                         return n + 3;
                     }
-                    if(board.checkDiagRight(3, i, n)){
+                    if(board.checkDiagRight(length, i, n)){
                         return n + 3;
                     }
-                    if(board.checkDiagLeft(3, i, n)){
+                    if(board.checkDiagLeft(length, i, n)){
                         return n - 3;
                     }
                 }
