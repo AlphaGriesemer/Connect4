@@ -6,7 +6,7 @@ public class heuristic{
     }
     //hi alex! (-:
     public int checkForPossWin(int player, int length){
-        int value = 0;
+        int value = -1;
         for(int i = 0; i < this.board.getBoard().length; i++){
             for(int n = 0; n < this.board.getBoard()[0].length; n++){
                 if(board.getBoard()[i][n] == player) {
@@ -33,7 +33,7 @@ public class heuristic{
             }
         }
         int row = gravity(value);
-        return 0;
+        return -1;
     }
 
     public int gravity(int column){
