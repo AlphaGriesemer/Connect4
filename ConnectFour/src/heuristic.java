@@ -1,7 +1,7 @@
 public class heuristic{
-    private Board board;
+    private int[][] board;
 
-    public heuristic(Board board) {
+    public heuristic(int[][] board) {
         this.board = board;
     }
     public int cF3IC_R_D(int column){
@@ -13,7 +13,12 @@ public class heuristic{
     public int cF2IC_R_D(){
         return 1;
     }
-    private int gravity(){
+    public int gravity(int column){
+        for (int i = board.length -1; i >= 0 ; i--) {
+            if(board[i][column] == Board.NO_PLAYER){
+                return i;
+            }
+        }
         return 0;
     }
 }

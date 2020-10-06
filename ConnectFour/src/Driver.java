@@ -66,6 +66,11 @@ public class Driver {
                 System.out.println("Draw !");
             }
         }
+        else{
+            b.displayBoard();
+            heuristic heuristic = new heuristic(b.getBoard());
+            System.out.println(heuristic.gravity(2));
+        }
 
 
 
