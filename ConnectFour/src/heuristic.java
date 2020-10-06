@@ -6,36 +6,36 @@ public class heuristic{
     }
     //hi alex! (-:
     public int checkForPossWin(int player, int length){
+        int value = 0;
         for(int i = 0; i < this.board.getBoard().length; i++){
             for(int n = 0; n < this.board.getBoard()[0].length; n++){
                 if(board.getBoard()[i][n] == player) {
                     if(board.checkUp(length, i, n)){
-                        return n;
+                        value = n;
                     }
                     if(board.checkDown(length, i, n)){
-                        return n;
+                        value = n;
                     }
                     if(board.checkLeft(length, i, n)){
 
-                        return n - 3;
+                       value = n - 3;
                     }
                     if(board.checkRight(length, i, n)){
-                        return n + 3;
+                        value = n + 3;
                     }
                     if(board.checkDiagRight(length, i, n)){
-                        return n + 3;
+                        value = n + 3;
                     }
                     if(board.checkDiagLeft(length, i, n)){
-                        return n - 3;
+                        value = n - 3;
                     }
                 }
             }
         }
+        int row = gravity(value);
         return 0;
     }
-    public int cF2IC_R_D(){
-        return 1;
-    }
+
     public int gravity(int column){
         for (int i = board.getBoardLength() -1; i >= 0 ; i--) {
             if(board.getBoard()[i][column] == Board.NO_PLAYER){
