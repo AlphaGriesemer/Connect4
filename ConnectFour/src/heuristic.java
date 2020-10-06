@@ -4,6 +4,7 @@ public class heuristic{
     public heuristic(Board board) {
         this.board = board;
     }
+    //hi alex! (-:
     public int checkForPossWin(int player, int length){
         for(int i = 0; i < this.board.getBoard().length; i++){
             for(int n = 0; n < this.board.getBoard()[0].length; n++){
@@ -15,6 +16,7 @@ public class heuristic{
                         return n;
                     }
                     if(board.checkLeft(length, i, n)){
+
                         return n - 3;
                     }
                     if(board.checkRight(length, i, n)){
