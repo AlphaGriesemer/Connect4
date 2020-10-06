@@ -5,36 +5,34 @@ public class heuristic{
         this.board = board;
     }
     public int checkForPossWin(int player, int length){
-        int value = 0;
         for(int i = 0; i < this.board.getBoard().length; i++){
             for(int n = 0; n < this.board.getBoard()[0].length; n++){
                 if(board.getBoard()[i][n] == player) {
                     if(board.checkUp(length, i, n)){
-                        value = n;
+                        return n;
                     }
                     if(board.checkDown(length, i, n)){
-                        value = n;
+                        return n;
                     }
                     if(board.checkLeft(length, i, n)){
-                        value = n - 3;
+                        return n - 3;
                     }
                     if(board.checkRight(length, i, n)){
-                        value = n + 3;
+                        return n + 3;
                     }
                     if(board.checkDiagRight(length, i, n)){
-                        value = n + 3;
+                        return n + 3;
                     }
                     if(board.checkDiagLeft(length, i, n)){
-                        value = n - 3;
+                        return n - 3;
                     }
                 }
             }
         }
-        int row = gravity(value);
-        for(int i = 0; i < board.getAvailableCells().size(); i++){
-            if(board.getAvailableCells().get(i) == board[row][value])
-        }
-
+        return 0;
+    }
+    public int cF2IC_R_D(){
+        return 1;
     }
     public int gravity(int column){
         for (int i = board.getBoardLength() -1; i >= 0 ; i--) {
@@ -45,3 +43,15 @@ public class heuristic{
         return 0;
     }
 }
+
+/*
+private Board board(){
+
+checkFor3InAColumn
+
+gravity(int column){
+getLowestAvailableCell
+return GLAC
+}
+
+ */
