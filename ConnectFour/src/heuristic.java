@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class heuristic{
     private Board board;
 
@@ -32,7 +35,18 @@ public class heuristic{
                 }
             }
         }
-        int row = gravity(value);
+        System.out.println(board.getAvailableCells().get(0));
+        if(value != -1){
+            int row = gravity(value);
+            List<Integer> row_column = new ArrayList<>();
+            row_column.add(row);
+            row_column.add(value);
+            for (int i = 0; i < board.getAvailableCells().size(); i++) {
+                if(board.getAvailableCells().get(i) == row_column){
+                    return value;
+                }
+            }
+        }
         return -1;
     }
 

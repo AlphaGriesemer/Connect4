@@ -69,7 +69,8 @@ public class Driver {
         else{
             b.displayBoard();
             heuristic heuristic = new heuristic(b);
-            System.out.println(heuristic.gravity(2));
+            heuristic.checkForPossWin(1, 1);
+            //System.out.println(heuristic.gravity(2));
         }
 
 
