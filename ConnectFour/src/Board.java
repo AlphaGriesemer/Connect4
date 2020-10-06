@@ -41,7 +41,7 @@ public class Board {
         return false;
     }
 
-    private boolean checkDown(int length, int row, int col){
+    public boolean checkDown(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < length; i++){
             if(row + i >= board.length) {
@@ -54,7 +54,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkUp(int length, int row, int col){
+    public boolean checkUp(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < length; i++){
             if(row - i < 0){
@@ -67,7 +67,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkLeft(int length, int row, int col) {
+    public boolean checkLeft(int length, int row, int col) {
         int value = board[row][col];
         for(int i = 0; i < length; i++){
             if(col - i < 0){
@@ -81,7 +81,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkRight(int length, int row, int col){
+    public boolean checkRight(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < length; i++){
             if (col + i >= board.length){
@@ -95,7 +95,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkDiagLeft(int length, int row, int col){
+    public boolean checkDiagLeft(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < length; i++){
             if(col - i < 0 || row + i >= board.length){
@@ -109,7 +109,7 @@ public class Board {
         return true;
     }
 
-    private boolean checkDiagRight(int length, int row, int col){
+    public boolean checkDiagRight(int length, int row, int col){
         int value = board[row][col];
         for(int i = 0; i < length; i++){
             if(col + i >= board[0].length || row + i >= board.length){

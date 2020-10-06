@@ -4,11 +4,31 @@ public class heuristic{
     public heuristic(Board board) {
         this.board = board;
     }
-    public int cF3IC_R_D(int column){
-        if(true){
-            return column;
+    public int cF3IC_R_D(int player){
+        for(int i = 0; i < this.board.getBoard().length; i++){
+            for(int n = 0; n < this.board.getBoard()[0].length; n++){
+                if(board.getBoard()[i][n] == player) {
+                    if(board.checkUp(3, i, n)){
+                        return n;
+                    }
+                    if(board.checkDown(3, i, n)){
+                        return n;
+                    }
+                    if(board.checkLeft(3, i, n)){
+                        return n - 3;
+                    }
+                    if(board.checkRight(3, i, n)){
+                        return n + 3;
+                    }
+                    if(board.checkDiagRight(3, i, n)){
+                        return n + 3;
+                    }
+                    if(board.checkDiagLeft(3, i, n)){
+                        return n - 3;
+                    }
+                }
+            }
         }
-        return 0;
     }
     public int cF2IC_R_D(){
         return 1;
