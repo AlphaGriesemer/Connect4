@@ -128,27 +128,27 @@ public class Board {
             for(int n = 0; n < board[0].length; n++){
                 if(board[i][n] == player) {
                     if(this.checkUp(length, i, n)){
-                        System.out.println("Won by checkup");
+                        //System.out.println("Won by checkup");
                         return true;
                     }
                     if(this.checkDown(length, i, n)){
-                        System.out.println("Won by checkDown");
+                        //System.out.println("Won by checkDown");
                         return true;
                     }
                     if(this.checkLeft(length, i, n)){
-                        System.out.println("Won by checkLeft");
+                        //System.out.println("Won by checkLeft");
                         return true;
                     }
                     if(this.checkRight(length, i, n)){
-                        System.out.println("Won by checkRight");
+                        //System.out.println("Won by checkRight");
                         return true;
                     }
                     if(this.checkDiagRight(length, i, n)){
-                        System.out.println("Won by checkDiagRight");
+                        //System.out.println("Won by checkDiagRight");
                         return true;
                     }
                     if(this.checkDiagLeft(length, i, n)){
-                        System.out.println("Won by CheckDiagLeft");
+                        //System.out.println("Won by CheckDiagLeft");
                         return true;
                     }
                 }
