@@ -34,11 +34,11 @@ public class AI extends Board {
             int bestMoveSoFar = -1;
             List<List<Integer>> availableCells = board.getAvailableCells();
 
-            if (board.checkWin(4, PLAYER_Y)) {
+            if (board.checkWin(PLAYER_Y, 4)) {
                 return 10;
 
             }
-            else if (board.checkWin(4, PLAYER_R)) {
+            else if (board.checkWin(PLAYER_R, 4)) {
                 return -10;
             }
 
@@ -86,11 +86,11 @@ public class AI extends Board {
             int bestMoveSoFar = -1;
             List<List<Integer>> availableCells = board.getAvailableCells();
 
-            if (board.checkWin(4, PLAYER_Y)) {
+            if (board.checkWin(PLAYER_Y, 4)) {
                 return 10;
 
             }
-            else if (board.checkWin(4, PLAYER_R)) {
+            else if (board.checkWin(PLAYER_R, 4)) {
                 return -10;
             }
 
