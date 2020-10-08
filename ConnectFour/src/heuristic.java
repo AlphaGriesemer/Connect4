@@ -8,6 +8,7 @@ public class heuristic{
         this.board = board;
     }
     //hi alex! (-:
+    //hi channing (-:
     public int checkForPossWin(int player, int length){
         int value = -1;
         for(int i = 0; i < this.board.getBoard().length; i++){
