@@ -20,7 +20,16 @@ public class AI extends Board {
         Random random = new Random();
         if(aiPlayer.equals("Y")){
             if(depth == 6){
-                return random.nextInt(10);
+                heuristic h = new heuristic(board);
+                if(h.checkForPossWin(PLAYER_Y, 3) == -1){
+                    if(h.checkForPossWin(PLAYER_Y, 2) == -1){
+                        return random.nextInt(10);
+                    } else {
+                        return h.checkForPossWin(PLAYER_Y, 2);
+                    }
+                } else {
+                    return h.checkForPossWin(PLAYER_Y, 3);
+                }
             }
             int bestMoveSoFar = -1;
             List<List<Integer>> availableCells = board.getAvailableCells();
@@ -63,7 +72,16 @@ public class AI extends Board {
         }
         else{
             if(depth == 6){
-                return random.nextInt(10);
+                heuristic h = new heuristic(board);
+                if(h.checkForPossWin(PLAYER_Y, 3) == -1){
+                    if(h.checkForPossWin(PLAYER_Y, 2) == -1){
+                        return random.nextInt(10);
+                    } else {
+                        return h.checkForPossWin(PLAYER_Y, 2);
+                    }
+                } else {
+                    return h.checkForPossWin(PLAYER_Y, 3);
+                }
             }
             int bestMoveSoFar = -1;
             List<List<Integer>> availableCells = board.getAvailableCells();
