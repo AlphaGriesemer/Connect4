@@ -18,26 +18,26 @@ public class heuristic{
                         value = n;
                     }
                     if(board.checkLeft(length, i, n)){
-
-                       value = n - 3;
+                       value = n - length;
                     }
                     if(board.checkRight(length, i, n)){
-                        value = n + 3;
+                        value = n + length;
                     }
                     if(board.checkDiagRight(length, i, n)){
-                        value = n + 3;
+                        value = n + length;
                     }
                     if(board.checkDiagLeft(length, i, n)){
-                        value = n - 3;
+                        value = n - length;
                     }
                 }
             }
         }
-        if(value >= 0){
-            int row = gravity(value);
-            return row;
+        if(value < 0 || value > board.getBoardLength()){
+            return -1;
         }
-        return -1;
+
+        int row = gravity(value);
+        return row;
     }
 //hi alex pt. 2
     public int gravity(int column){
