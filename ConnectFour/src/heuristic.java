@@ -33,10 +33,13 @@ public class heuristic{
                 }
             }
         }
-        int row = gravity(value);
+        if(value >= 0){
+            int row = gravity(value);
+            return row;
+        }
         return -1;
     }
-
+//hi alex pt. 2
     public int gravity(int column){
         for (int i = board.getBoardLength() -1; i >= 0 ; i--) {
             if(board.getBoard()[i][column] == Board.NO_PLAYER){
